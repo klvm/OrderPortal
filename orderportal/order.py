@@ -197,7 +197,9 @@ class OrderSaver(saver.Saver):
                         if v and v not in field['multiselect']:
                             raise ValueError('value not among alternatives')
                 elif field['type'] == constants.TEXT:
-                    pass
+                    if field.get('max_chars'):
+                        if len(value) > field.get('max_chars'):
+                            raise ValueError('Input too long')
                 elif field['type'] == constants.DATE:
                     pass
                 elif field['type'] == constants.TABLE:

@@ -119,6 +119,13 @@ class Fields(object):
             values = [v.strip() for v in values]
             values = [v for v in values if v]
             new['table'] = values
+        # Set the maximum number of characters on a text field
+        elif type == constants.TEXT:
+            try:
+                max_chars = int(rqh.get_argument('max_chars', ''))
+            except ValueError:
+                max_chars = None
+            new['max_chars'] = max_chars
         # Set the group which the field is a member of.
         group = rqh.get_argument('group', None)
         if group == '': group = None
@@ -187,6 +194,13 @@ class Fields(object):
         # Represent the boolean by a checkbox or a menu.
         elif field['type'] == constants.BOOLEAN:
             new['checkbox'] = utils.to_bool(rqh.get_argument('checkbox', None))
+        # Set the maximum number of characters on a text field
+        elif field['type'] == constants.TEXT:
+            try:
+                max_chars = int(rqh.get_argument('max_chars', ''))
+            except ValueError:
+                max_chars = None
+            new['max_chars'] = max_chars
         # Set the new processor field value.
         name = rqh.get_argument('processor', None)
         if name and name in settings['PROCESSORS']:

@@ -190,9 +190,15 @@
     </select>
 
     {% elif field['type'] == constants.TEXT %}
+    {% if field.get('max_chars') %}
+    <span>(max. {{ field.get('max_chars') }} characters)</span>
+    {% end %}
     <textarea class="form-control"
 	      name="{{ field['identifier'] }}"
 	      id="{{ field['identifier'] }}"
+	      {% if field.get('max_chars') %}
+	      maxlength="{{ field.get('max_chars') }}"
+	      {% end %}
 	      >{{ value or '' }}</textarea>
 
     {% elif field['type'] == constants.DATE %}

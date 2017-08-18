@@ -228,6 +228,10 @@
 	  <pre>{{ '\n'.join(field.get('multiselect') or []) }}</pre>
 	  {% elif field['type'] == constants.TABLE %}
 	  <pre>{{ '\n'.join(field.get('table') or []) }}</pre>
+	  {% elif field['type'] == constants.TEXT %}
+	  {% if field.get('max_chars') %}
+	    (max. {{ field.get('max_chars') }} characters)
+	  {% end %}
 	  {% end %}
 	  {% if field.get('processor') %}
 	  <br><em>{{ field.get('processor') }}</em>

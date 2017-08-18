@@ -96,6 +96,27 @@
 
   <div class="form-group visible-if"
        data-if-id="type"
+       data-if-val="text">
+    <div class="row">
+      <div class="col-md-6">
+	<label class="control-label" for="max_chars">
+	  Maximum number of characters
+	</label>
+	<div class="input">
+	  <input type="number"
+		 name="max_chars"
+		 id="max_chars"
+		 value="2500">
+	</div>
+      </div>
+    </div>
+    <span class="help-block">
+      The maximum number of characters in the text field.
+    </span>
+  </div>
+
+  <div class="form-group visible-if"
+       data-if-id="type"
        data-if-val="group">
     <div class="row">
       <div class="col-md-6">
