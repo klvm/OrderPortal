@@ -51,3 +51,6 @@ ORDERS_LIST_STATUSES:
 MESSAGE_SENDER_EMAIL: '"OrderPortal Support" <support@my-domain.com>'
 EMAIL:
   HOST: 'localhost'
+
+# Option to hide icons from page headings
+HIDE_LABELED_ICONS: False

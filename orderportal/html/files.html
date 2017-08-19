@@ -3,7 +3,9 @@
 {% extends "base.html" %}
 
 {% block head_title %}Documents{% end %}
-{% block body_title %}{% module Icon('file') %} Documents{% end %}
+{% block body_title %}
+{% module Icon('file', title='Documents', label=True) %}
+{% end %}
 
 {% block main_content %}
 <table id="files" class="table table-striped">
