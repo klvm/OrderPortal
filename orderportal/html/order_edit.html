@@ -7,8 +7,7 @@ Edit {{ terminology('order') }} '{{ order['title'] }}'
 {% end %}
 
 {% block body_title %}
-Edit  {% module Icon('order') %}
-{{ terminology('order') }} '{{ order['title'] }}'
+Edit  {% module Icon('order', label=False) %} '{{ order['title'] }}'
 {% end %}
 
 {% block content %}
